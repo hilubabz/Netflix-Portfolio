@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+body{
+  background-color: #000000;
+  color: white;
+  font-family: "Inter Tight", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  overflow-x: hidden;
+  padding-bottom: 500px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+@keyframes border-animation {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  50% {
+    left: 0;
+    width: 100%; 
+  }
+  50.01% {
+    left: auto;
+    right: 0;
+    width: 0;
+  }
+  100% {
+    left: auto;
+    right: 0;
+    width: 100%; 
+  }
+}
+
+
+.animate-border{
+  animation:4s border-animation linear infinite;
+}
