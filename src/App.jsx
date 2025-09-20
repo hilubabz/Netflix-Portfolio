@@ -1,9 +1,11 @@
 
 import { Routes, Route, Link } from 'react-router-dom'
-import './App.css'
 import HomePage from './Pages/HomePage'
 import { useState, useEffect } from 'react'
 import ProjectPage from './Pages/ProjectPage'
+import Video from './Pages/Video'
+import Skills from './Pages/Skills'
+import ProfessionalPage from './Pages/ProfessionalPage'
 
 
 function App() {
@@ -32,8 +34,8 @@ function App() {
           </Link>
           <div className='flex space-x-10'>
             <Link to={'/'} className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Home</Link>
-            <div className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Professional</div>
-            <div className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Skills</div>
+            <Link to={'/professional'} className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Professional</Link>
+            <Link to={'/skills'} className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Skills</Link>
             <Link to={'/projects'} className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Projects</Link>
             <div className='hover:text-red-700 cursor-pointer ease-in-out duration-[0.5s]'>Videos</div>
           </div>
@@ -44,6 +46,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path='/projects' element={<ProjectPage/>}/>
+        <Route path='/video' element={<Video/>}/>
+        <Route path='/skills' element={<Skills/>}/>
+        <Route path='/professional' element={<ProfessionalPage/>}/>
         <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
     </>
