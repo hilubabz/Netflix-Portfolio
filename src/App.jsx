@@ -29,7 +29,7 @@ function App() {
   }, []);
   return (
     <>
-      <nav className={`flex justify-between items-center px-7 md:py-4 py-2 fixed w-full top-0 z-50 ${top ? '' : 'bg-black'} ease-in-out duration-[0.5s]`}>
+      <nav className={`flex justify-between items-center px-7 md:py-4 py-2 fixed w-full top-0 z-30 ${top ? '' : 'bg-black'} ease-in-out duration-[0.5s]`}>
         <div className='flex gap-x-2 md:gap-x-30'>
           {nav ? (
             <ImCross
