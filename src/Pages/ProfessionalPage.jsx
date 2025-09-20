@@ -47,14 +47,14 @@ export default function ProfessionalPage() {
             </div>
 
             <div className="flex flex-col items-center relative space-y-16">
-                <div className="absolute h-full w-1 bg-gradient-to-b from-red-700 via-red-500 to-red-700 rounded-full" />
+                <div className="absolute max-md:left-11 h-full w-1 bg-gradient-to-b from-red-700 via-red-500 to-red-700 rounded-full" />
 
                 {professional.map((val, index) => (
                     <div
                         key={index}
-                        className="grid grid-cols-[2.5fr_1fr_2.5fr] z-20 justify-items-center w-[85%] max-w-[1200px] items-start group"
+                        className="grid grid-cols-[2.5fr_1fr_2.5fr] max-md:grid-cols-[10%_80%] z-20 justify-items-center w-[85%] max-w-[1200px] items-start group max-md:gap-7"
                     >
-                        <div className="w-full flex h-15 justify-end items-center pr-8">
+                        <div className="w-full flex h-15 justify-end items-center pr-8 max-md:hidden">
                             <SlideAnimate content={false}>
                                 <div className="text-right">
                                     <div className="text-red-500 font-semibold mb-1">{val.date}</div>
@@ -85,7 +85,7 @@ export default function ProfessionalPage() {
                     </div>
                 ))}
                 <PopUpAnimate>
-                    <div className="h-14 w-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 shadow-lg flex items-center justify-center text-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-red-500/50">
+                    <div className="h-14 w-14 rounded-full bg-gradient-to-br from-red-500 to-red-700 shadow-lg flex items-center justify-center text-2xl transform transition-all duration-300 hover:scale-110 hover:shadow-red-500/50 max-md:hidden">
                         <IoIosStar />
                     </div>
                 </PopUpAnimate>

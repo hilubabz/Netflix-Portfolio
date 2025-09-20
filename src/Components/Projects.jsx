@@ -1,20 +1,11 @@
-import { useState } from "react";
 import { MdArrowBackIos } from "react-icons/md";
 import { MdArrowForwardIos } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoPlaySharp } from "react-icons/io5";
 import TextType from "./TextType";
+import { useState } from "react";
 
 export default function Projects() {
-    // const projects = [
-    //     "SocialSphere",
-    //     "Messayo",
-    //     "HavocAura",
-    //     "Gaidim",
-    //     "Furniture Classification",
-    //     "Rock Paper Scissors",
-    //     "To Do List",
-    // ];
     const projects = [{
         name: 'SocialSphere',
         language: 'Next.js | MongoDB | Python (Fast API)',
@@ -81,7 +72,7 @@ export default function Projects() {
         }
     }
     return (
-        <div className="pt-10 ">
+        <div className="pt-10 pb-40">
             <div className="text-2xl px-7">Todays Top Picks (Recent Projects)</div>
             <div
                 className="relative px-7 pt-7 flex items-center"
@@ -89,7 +80,7 @@ export default function Projects() {
                 onMouseLeave={() => setProjectButton(false)}
             >
                 <div
-                    className={`flex gap-7 h-[150px] ease-in-out duration-[1s]`}
+                    className={`flex gap-7 ease-in-out duration-[1s] max-md:overflow-x-auto max-md:overflow-visible`}
                     style={{ transform: `translateX(${projectSlider * 328}px)` }}
                 >
                     {projects.map((val, index) => (
@@ -99,6 +90,7 @@ export default function Projects() {
                                 className={`flex-shrink-0 relative ease-in-out duration-[0.5s] min-h-[150px] w-[300px] hover:z-20 shadow-md bg-[#1A1A1A] flex flex-col space-y-3`}
                                 onMouseOver={() => setScale(index)}
                                 onMouseLeave={() => setScale(-1)}
+                                onClick={()=>setScale(index)}
                                 style={{
                                     transform: `${scale === index ? "scale(1.4)" : "scale(1)"} 
                             ${scale === 0 ? "translateX(50px)" : ""}`,
@@ -147,7 +139,7 @@ export default function Projects() {
                 </div>
                 <div
                     className={`absolute left-0 top-1/2 -translate-y-1/2 rounded-r-full bg-red-700 h-full flex items-center w-0 justify-center hover:opacity-100 ease-in-out duration-[0.4s] ${projectButton ? "opacity-50 w-20" : "opacity-0"
-                        }`}
+                        } max-md:hidden`}
                     onClick={() =>
                         setProjectSlider(projectSlider == 0 ? -3 : projectSlider + 1)
                     }
@@ -156,7 +148,7 @@ export default function Projects() {
                 </div>
                 <div
                     className={`absolute right-0 top-1/2 -translate-y-1/2 rounded-l-full bg-red-700 h-full flex items-center w-0 justify-center hover:opacity-80 ease-in-out duration-[0.5s] ${projectButton ? "opacity-50 w-20" : "opacity-0"
-                        }`}
+                        } max-md:hidden`}
                     onClick={() =>
                         setProjectSlider(projectSlider == -3 ? 0 : projectSlider - 1)
                     }
@@ -164,7 +156,7 @@ export default function Projects() {
                     <MdArrowForwardIos />
                 </div>
             </div>
-            <div className="flex justify-center align-center pt-10 space-x-4">
+            <div className="flex justify-center align-center pt-10 space-x-4 max-md:hidden">
                 <div className={`h-2 w-2 border-1 border-red-700 rounded-full ${projectSlider == 0 ? 'bg-red-700' : ''} transition`}></div>
                 <div className={`h-2 w-2 border-1 border-red-700 rounded-full ${projectSlider == -1 ? 'bg-red-700' : ''} transition`}></div>
                 <div className={`h-2 w-2 border-1 border-red-700 rounded-full ${projectSlider == -2 ? 'bg-red-700' : ''} transition`}></div>
