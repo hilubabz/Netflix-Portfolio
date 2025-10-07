@@ -6,7 +6,7 @@ import { RiNextjsFill } from "react-icons/ri";
 import { DiMongodb } from "react-icons/di";
 import { FaJs } from "react-icons/fa";
 import { FaPhp } from "react-icons/fa";
-import { SiExpress } from "react-icons/si";
+import { SiExpress, SiTypescript } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { SiFastapi } from "react-icons/si";
@@ -56,6 +56,11 @@ const skills=[
         description: "Utility-first CSS framework for styling",
         icon: <RiTailwindCssFill className="text-red-700 text-5xl" />,
       },
+      {
+        language:'TypeScript',
+        description:"Extension to JavaScript ensuring type safety",
+        icon: <SiTypescript className="text-red-700 text-5xl" />
+      }
     ],
   },
   

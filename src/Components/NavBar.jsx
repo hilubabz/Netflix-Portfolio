@@ -1,22 +1,11 @@
-
-import { Routes, Route, Link, useLocation } from 'react-router-dom'
-import HomePage from './Pages/HomePage'
-import { useState, useEffect } from 'react'
-import ProjectPage from './Pages/ProjectPage'
-import Video from './Pages/Video'
-import Skills from './Pages/Skills'
-import ProfessionalPage from './Pages/ProfessionalPage'
-import { VscThreeBars } from "react-icons/vsc";
+import { useState, useEffect } from "react";
 import { ImCross } from "react-icons/im";
+import { VscThreeBars } from "react-icons/vsc";
+import { Link } from "react-router-dom";
 
-function App() {
-  const [top, setTop] = useState(true)
+export default function NavBar(){
+      const [top, setTop] = useState(true)
   const [nav, setNav] = useState(false)
-  const location = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -32,9 +21,8 @@ function App() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  return (
-    <>
-      <nav className={`flex justify-between items-center px-7 md:py-4 py-2 fixed w-full top-0 z-30 ${top ? '' : 'bg-black'} ease-in-out duration-[0.5s]`}>
+    return(
+        <nav className={`flex justify-between items-center px-7 md:py-4 py-2 fixed w-full top-0 z-30 ${top ? '' : 'bg-black'} ease-in-out duration-[0.5s]`}>
         <div className='flex gap-x-2 md:gap-x-30'>
           {nav ? (
             <ImCross
@@ -71,20 +59,5 @@ function App() {
           <img src="/Logo2.png" alt="" className='h-[70%] w-[70%] object-contain'/>
         </div>
       </nav>
-
-
-
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path='/projects' element={<ProjectPage />} />
-        <Route path='/video/:index' element={<Video />} />
-        <Route path='/skills' element={<Skills />} />
-        <Route path='/professional' element={<ProfessionalPage />} />
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
-      </Routes>
-    </>
-  )
+    )
 }
-
-export default App
