@@ -5,6 +5,7 @@ import { IoPlaySharp } from "react-icons/io5";
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Projects() {
     const projects = [{
@@ -12,49 +13,56 @@ export default function Projects() {
         language: 'Next.js | MongoDB | Python (Fast API)',
         image: 'SocialSphere.png',
         color: '#1b2951',
-        description: 'SocialSphere is a social media website that helps user to share posts, like, comment, message friends, etc. It has an offensive comment filtering system implemented using Logistic Regression algorithm with Python and real time messaging with Socket.io'
+        description: 'SocialSphere is a social media website that helps user to share posts, like, comment, message friends, etc. It has an offensive comment filtering system implemented using Logistic Regression algorithm with Python and real time messaging with Socket.io',
+        github:'https://github.com/hilubabz/SocialSphere'
     },
     {
         name: 'Messayo',
         language: 'React.js | Express.js | MongoDB',
         image: 'Messayo.png',
         color: '#f8f9fa',
-        description: 'Messayo is a messaging website developed using MERN stack. It helps users to add other users and then message their friends and also share pictures. It integrates real time messaging feature with the help of Socket.IO'
+        description: 'Messayo is a messaging website developed using MERN stack. It helps users to add other users and then message their friends and also share pictures. It integrates real time messaging feature with the help of Socket.IO',
+        github:'https://github.com/hilubabz/Messayo'
     },
     {
         name: 'HavocAura',
         language: 'React.js | Express.js | MongoDB',
         image: 'HavocAura.png',
         color: '#2d1b69',
-        description: 'HavocAura is an ecommerce website developed using MERN Stack. It consists of a catalog of laptops and PC Parts. Users can easily add any item to cart and then checkout with secure eSewa payment gateway. Users also have the option to build their own PC with the parts they selected.'
+        description: 'HavocAura is an ecommerce website developed using MERN Stack. It consists of a catalog of laptops and PC Parts. Users can easily add any item to cart and then checkout with secure eSewa payment gateway. Users also have the option to build their own PC with the parts they selected.',
+        github:'https://github.com/hilubabz/HAVOCAURA'
     },
     {
         name: 'Gaidim',
         language: 'HTML | CSS | JavaScript | PHP | MySQL',
         image: 'Gaidim.png',
         color: '#f9f9f9',
-        description: 'SocialSphere is a social media website that helps user to share posts, like, comment, message friends, etc. It has an offensive comment filtering system implemented using Logistic Regression algorithm with Python and real time messaging with Socket.io'
+        description: 'Gaidim is a travel planning website developed using HTML, CSS, JS, and PHP. In it, users can login browse various plaves in bucket list, cultural, and top attractions. Moreover, they can also add various places to their favorites and also look for accomodations.',
+        github:'https://github.com/hilubabz/Travel-Management'
     },
     {
         name: 'Furniture Classification',
         language: 'Python',
         image: 'Python.png',
         color: '#2d1b69',
-        description: 'It is a simple console based furniture classification implemented using Python. It makes use of CNN (Convolutional Neural Network) to classify the furnitures. Users can simply provide an image and then it will classified into Almirah, Chair, Fridge, Table, or TV'
+        description: 'It is a simple console based furniture classification implemented using Python. It makes use of CNN (Convolutional Neural Network) to classify the furnitures. Users can simply provide an image and then it will classified into Almirah, Chair, Fridge, Table, or TV',
+        github:'https://github.com/hilubabz/Furniture-Classification'
     },
     {
         name: 'Rock Paper Scissors',
         language: 'HTML | CSS | JavaScript',
         image: 'Rock.png',
         color: '#f9f9f9',
-        description: 'A simple rock paper scissors game developed using HTML, CSS, and JavaScript. It simply allows user to play rock paper scissors with computer. It also keeps track and stores the scores (win, draw, loss) with the option to reset the scores.'
+        description: 'A simple rock paper scissors game developed using HTML, CSS, and JavaScript. It simply allows user to play rock paper scissors with computer. It also keeps track and stores the scores (win, draw, loss) with the option to reset the scores.',
+        github:'https://github.com/hilubabz/Rock-Paper-Scissors '
     },
     {
         name: 'To Do List',
-        language: 'React.js',
+        language: 'React.js | TypeScript',
         image: 'ToDoList.png',
         color: '#2d1b69',
-        description: 'A simple To-Do List developed using React.js. Users can simply add tasks and then remove the tasks. The tasks are stored in local storage so the user can access it when they return to the website.'
+        description: 'A simple To-Do List developed using React + TypeScript. Users can simply add tasks and then remove the tasks. The tasks are stored in local storage so the user can access it when they return to the website.',
+        github:'https://github.com/hilubabz/To-Do-List-TypeScript'
     }]
     const [projectSlider, setProjectSlider] = useState(0);
     const [projectButton, setProjectButton] = useState(false);
@@ -143,14 +151,14 @@ export default function Projects() {
 
                                         <div className="p-6 space-y-6">
                                             <div className="flex flex-wrap items-center gap-4">
-                                                <button className="bg-white text-black font-semibold px-6 py-2 rounded-md hover:bg-[#e6e6e6] transition-colors flex items-center gap-2">
+                                                <Link to={`/video/${select}`} className="bg-white text-black font-semibold px-6 py-2 rounded-md hover:bg-[#e6e6e6] transition-colors flex items-center gap-2">
                                                     <IoPlaySharp className="text-xl" />
                                                     Live Demo
-                                                </button>
-                                                <button className="bg-[#303030] text-white px-4 py-2 rounded-md hover:bg-[#404040] transition-colors flex items-center gap-2">
+                                                </Link>
+                                                <a href={`${projects[select].github}`} className="bg-[#303030] text-white px-4 py-2 rounded-md hover:bg-[#404040] transition-colors flex items-center gap-2" target="_blank">
                                                     <FaGithub/>
                                                     GitHub
-                                                </button>
+                                                </a>
                                             </div>
 
                                             <div className="flex flex-col md:flex-row gap-6">
@@ -170,6 +178,7 @@ export default function Projects() {
                                                         src={`/${projects[select].image}`}
                                                         alt={projects[select].name}
                                                         className="rounded-md shadow-lg h-full w-full object-contain"
+                                                        style={{backgroundColor:projects[select].color}}
                                                     />
                                                 </div>
                                             </div>
